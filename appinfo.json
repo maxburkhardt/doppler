@@ -1,0 +1,17 @@
+{
+  "uuid": "e483b8cb-b0de-4e1e-b5b2-785342f0e0ee",
+  "shortName": "doppler",
+  "longName": "Doppler Radar",
+  "companyName": "Maximilitech Industries",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": true
+  },
+  "appKeys": {
+    "dummy": 0
+  },
+  "resources": {
+    "media": []
+  }
+}
