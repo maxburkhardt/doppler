@@ -5,38 +5,6 @@ static TextLayer *time_text_layer;
 static BitmapLayer *radar_image_layer;
 static AppTimer *radar_timer;
 
-//static GBitmap radar_image_bitmap;
-/*
-static uint32_t radar_image_buffer[IMAGE_ROWS][IMAGE_COLS];
-
-void radar_image_mark_dirty() {
-    layer_mark_dirty(bitmap_layer_get_layer(radar_image_layer));
-}
-
-void radar_image_set_dword(uint16_t index, uint32_t dword) {
-    uint8_t row = index / IMAGE_COLS;
-    uint8_t col = index % IMAGE_COLS;
-    radar_image_buffer[row][col] = dword;
-}
-
-static void radar_image_init() {
-    radar_image_bitmap = (GBitmap) {
-        .addr = radar_image_buffer,
-        .row_size_bytes = 20,
-        .info_flags = 0x01,
-        .bounds = GRect(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT)
-    };
-    bitmap_layer_set_bitmap(radar_image_layer, &radar_image_bitmap);
-
-    const ResHandle image_handle = resource_get_handle(RESOURCE_ID_IMAGE_DEFAULT);
-    const size_t image_res_size = resource_size(image_handle);
-    const size_t image_header_size = sizeof(GBitmap) - sizeof(void *);
-    resource_load_byte_range(image_handle, image_header_size, (uint8_t *) radar_image_buffer, image_res_size - image_header_size);
-
-    radar_image_mark_dirty();
-}
-*/
-
 void handle_minute_tick(struct tm *tick_time, TimeUnits units_changed) {
   static char time_text[] = "00:00";
   static char date_text[] = "Xxxxxxxxx 00";
@@ -94,7 +62,6 @@ static void window_load(Window *window) {
   layer_add_child(window_layer, text_layer_get_layer(time_text_layer));
 
   radar_image_layer = bitmap_layer_create(GRect(0, 24, 144, 144));
-  //radar_image_init();
   layer_add_child(window_layer, bitmap_layer_get_layer(radar_image_layer));
 }
 
